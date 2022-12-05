@@ -4,7 +4,7 @@ const { User } = require('../../models')
 // GET /api/users
 router.get('/', (req, res) => {
   // Access User model and run .findAll() method)
-  User.findAll({
+  User.findAll({ // User.findAll is a sequelize method
     attributes: { exclude: ['password'] } // this will make sure users can't request passwords
   })
     .then(dbUserData => res.json(dbUserData))
@@ -56,6 +56,7 @@ router.put('/:id', (req, res) => {
 
   // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
   User.update(req.body, {
+    individualHooks: true, // this must be added in order to use beforeUpdate() in models/User.js for password hashing
     where: {
       id: req.params.id
     }
