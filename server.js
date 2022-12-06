@@ -15,3 +15,4 @@ app.use(routes)
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'))
 }) // sequelize.sync means that this is sequelize taking the models and connecting them to associated database tables. If not, it will just create one.
+// if there are model changes, the tables must be dropped using {{ force: true }}
