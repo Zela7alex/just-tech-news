@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
       res.status(500).json(err)
     })
 })
-// Post to verify login
+// Post to verify login by user
 router.post('/login', (req, res) => {
   // expects {email: 'lalex123@gmail.com', password: 'password1234'}
   User.findOne({
