@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(routes)
 
 // turn on connection to db and server
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening'))
 }) // sequelize.sync means that this is sequelize taking the models and connecting them to associated database tables. If not, it will just create one.
-// if there are model changes, the tables must be dropped using {{ force: true }}
+// if there are model changes ex) tables added etc, the tables must be dropped using {{ force: true }} then switch to {{ force: false }} once tables validated.

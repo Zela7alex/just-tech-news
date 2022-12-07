@@ -24,7 +24,7 @@ Post.init(
         isURL: true
       }
     },
-    user_id: {
+    user_id: { // Foreign Key
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
