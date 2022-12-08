@@ -13,7 +13,7 @@ class Post extends Model {
         where: {
           id: body.post_id
         },
-        attributes: [
+        attributes: [ // attributes property lets you choose what data you want from the table
           'id',
           'post_url',
           'title',

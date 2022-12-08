@@ -5,7 +5,7 @@ const { Post, User, Vote } = require('../../models')
 // GET all posts by users
 router.get('/', (req, res) => {
   console.log('======================')
-  Post.findAll({
+  Post.findAll({ // attributes property lets you choose what data you want from the table
     attributes: ['id', 'post_url', 'title', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ], // all the columns that will be used from table aka "Post.js Model" to create a post
     order: [['created_at', 'DESC']], // shows the most recent posts
