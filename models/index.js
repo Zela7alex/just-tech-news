@@ -1,6 +1,6 @@
 // Importing the User model
-const User = require('./User')
 const Post = require('./Post')
+const User = require('./User')
 const Vote = require('./Vote')
 
 // creating association of user to many posts that can be posted by them via sequelize method
