@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User, Post, Vote } = require('../../models')
+const { User, Post, Vote, Comment } = require('../../models')
 
 // GET /api/users
 router.get('/', (req, res) => {
@@ -26,7 +26,15 @@ router.get('/:id', (req, res) => {
         model: Post,
         attributes: ['id', 'title', 'post_url', 'created_at']
       },
-      {
+      { // This will join the comment model with the attributes desired
+        model: Comment,
+        attributes: ['id', 'comment_text', 'created_at'],
+        include: { // must include user model in comment so that the username can be attached
+          model: Post,
+          attributes: ['title']
+        }
+      },
+      { // votes with post will now show under user data
         model: Post,
         attributes: ['title'],
         through: Vote,
