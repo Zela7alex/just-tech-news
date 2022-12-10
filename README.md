@@ -27,7 +27,7 @@ Use NPM to install all necessary packages
 - sequelize
 - ESlint (optional)
 
-* Deployed uusing Heroku/JawsDB
+* Deployed using Heroku/JawsDB
 
 ##
 
